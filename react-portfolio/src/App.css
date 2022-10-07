@@ -29,6 +29,11 @@ ul {
     list-style: none;
 }
 
+/* general styling */
+main {
+    height: 100vh;
+}
+
 /* navigation bar */
 .navbar {
     display: flex;
@@ -111,3 +116,12 @@ ul {
         display: none;
     }
     }
+
+    /* footer */
+    footer {
+        color: white;
+        background-color: rgb(74, 74, 74);
+        height: 100px;
+    }
+
+    

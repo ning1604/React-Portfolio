@@ -1,12 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { validateEmail } from '../../utils/helpers';
 
-export default function Contact() {
+function ContactForm() {
+  // Create state variables for the fields in the form
+  // Set initial values to an empty string
+  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const { name, email, message } = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formState)
+    // If everything is valid, clear out the input after a successful registration.
+    setFormState({ name: '', email: '', message: '' })
+    console.log('message submitted!');
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (e.target.name === 'email') {
+      const isValid = validateEmail(value);
+      if (!isValid) {
+        setErrorMessage('Your email is invalid.')
+      } else {
+        setErrorMessage('');
+      }
+    } else {
+      if (!value.length) {
+        setErrorMessage(`A ${name} is required`);
+      } else {
+        setErrorMessage('');
+      }
+    }
+    if (!errorMessage) {
+      setFormState({ ...formState, [name]: value })
+    }
+  }
+
   return (
     <div>
       <h1>Contact Page</h1>
-      <p>
-        Contact sample text
-      </p>
+      <div>
+        <form className='form'>
+          <input
+            defaultValue={name}
+            name='name'
+            type='text'
+            placeholder='name'
+            onBlur={handleChange}
+          />
+          <input
+            defaultValue={email}
+            name='email'
+            type='email'
+            placeholder='email'
+            onBlur={handleChange}
+          />
+          <input
+            defaultValue={message}
+            name='message'
+            type='text'
+            placeholder='message'
+            onBlur={handleChange}
+          />
+          <button type='submit' onClick={handleSubmit}>Submit</button>
+        </form>
+        {errorMessage && (
+          <div>
+            <p className='error-text'>{errorMessage}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
+
+export default ContactForm;
