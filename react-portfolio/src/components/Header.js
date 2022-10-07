@@ -24,13 +24,28 @@ function Header() {
 
     const handlePageChange = (page) => setCurrentPage(page);
 
+    // to toggle hamburger menu
+    const [hiddenMenu, setHiddenMenu] = useState(true);
+
     return (
         <div>
-            <h1>Ning.</h1>
-            {/* We are passing the currentPage from state and the function to update it */}
-            <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
-            {/* Here we are calling the renderPage method which will return a component  */}
-            {renderPage()}
+            <nav className='navbar'>
+                <div className='title'>Ning.</div>
+                <a href='#' className='toggle-btn' onClick={() => setHiddenMenu(!hiddenMenu)}>
+                    <span className='bar'></span>
+                    <span className='bar'></span>
+                    <span className='bar'></span>
+                </a>
+                <div className={(hiddenMenu ? 'hidden' : '') + ' menu'}>
+                    {/* We are passing the currentPage from state and the function to update it */}
+                    <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
+                    {/* Here we are calling the renderPage method which will return a component  */}
+                </div>
+
+            </nav>
+            <main>
+                {renderPage()}
+            </main>
         </div>
     );
 }
