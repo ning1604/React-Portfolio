@@ -135,11 +135,27 @@ main {
     transition: ease all .4s;
 }
 
-/* footer */
+/* footer styling */
 footer {
-    color: white;
+    display: flex;
+    justify-content: center;
+    color: var(--secondary-text);
     background-color: var(--primary-color);
     height: 100px;
+}
+
+.icon-group a {
+    margin: 1.5rem;
+    transition: all ease 0.3s;
+}
+
+.icon-group a:visited {
+    color: var(--secondary-text);
+}
+
+.icon-group a:hover {
+    color: var(--primary-text);
+    cursor: pointer;
 }
 
 @media (max-width: 1440px) {
