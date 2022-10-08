@@ -1,6 +1,8 @@
 :root {
-    --primary-color: grey;
-
+    --primary-color: rgb(22, 22, 22);
+    --secondary-color: white;
+    --primary-text: white;
+    --secondary-text: rgb(134, 134, 134);
 }
 
 /* css style resets */
@@ -9,9 +11,10 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-  }
+}
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -21,7 +24,10 @@ body {
     background-color: var(--primary-color);
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
     font: inherit;
 }
 
@@ -39,13 +45,15 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(74, 74, 74);
+    background-color: var(--primary-color);
     color: white;
+    padding: .75rem 4%;
 }
 
 .title {
+    font-family: 'Roboto', sans-serif;
     font-size: 3rem;
-    margin: 0 .75rem;
+    margin: 0 1rem;
 }
 
 .nav-tabs {
@@ -56,27 +64,32 @@ main {
 
 .nav-item a {
     display: block;
-    padding: 1rem;
+    padding: 1rem .3rem .2rem .3rem;
+    margin: 0 0.75rem;
     text-decoration: none;
+    font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
+    transition: margin-top 0.15s ease;
+    border-bottom: 3px solid transparent;
 }
 
-.nav-item:hover {
-    text-decoration: underline;
+.nav-item a:hover {
+    border-bottom: 3px solid var(--secondary-text);
+    margin-top: -5px;
 }
 
 .nav-link {
-    color: white;
+    color: var(--secondary-text);
 }
 
 .nav-link-active {
-    color: black;
+    color: var(--primary-text);
 }
 
 .toggle-btn {
     position: absolute;
-    top: 1.5rem;
-    right: 1rem;
+    top: 2rem;
+    right: 2rem;
     display: none;
     flex-direction: column;
     justify-content: space-between;
@@ -85,43 +98,111 @@ main {
 }
 
 .toggle-btn .bar {
-    height: 3.5px;
+    height: 4px;
     width: 100%;
     background-color: white;
 }
 
-@media (max-width: 600px) {
+/* about page */
+.about-content {
+    color: var(--secondary-text);
+    font-size: 70px;
+    max-width: 700px;
+    transition: ease all .4s;
+}
+
+/* general page stylings */
+.container {
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 11rem;
+    padding-left: 17%;
+    transition: ease all .4s;
+}
+
+.page-title {
+    color: var(--primary-text);
+    font-family: 'Playfair Display', serif, 'Times New Roman';
+    font-weight: 500;
+    font-size: 75px;
+    padding-bottom: 1rem;
+    transition: ease all .4s;
+}
+
+/* footer */
+footer {
+    color: white;
+    background-color: var(--primary-color);
+    height: 100px;
+}
+
+@media (max-width: 1440px) {
+    .page-container {
+        padding-top: 6rem;
+        padding-left: 10%;
+    }
+
+    .page-title {
+        font-size: 60px;
+    }
+
+    .about-content {
+        font-size: 60px;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        padding-top: 3.5rem;
+        padding-left: 10%;
+    }
+
+    .page-title {
+        font-size: 40px;
+    }
+
+    .about-content {
+        font-size: 40px;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
     .toggle-btn {
         display: flex;
     }
+
     .nav-item {
         width: 100%;
-    } 
+    }
+
     .navbar {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .nav-tabs {
-       flex-direction: column;
-       width: 100%; 
+        flex-direction: column;
+        width: 100%;
     }
+
     .nav-item a {
-       padding: .5rem 1rem; 
+        padding: .5rem 1rem;
     }
+
     .menu {
         width: 100%;
         text-align: center;
     }
+
     .hidden {
         display: none;
     }
-    }
-
-    /* footer */
-    footer {
-        color: white;
-        background-color: rgb(74, 74, 74);
-        height: 100px;
-    }
-
-    
+}

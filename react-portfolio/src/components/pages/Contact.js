@@ -12,13 +12,14 @@ function ContactForm() {
     e.preventDefault();
     console.log(formState)
     // If everything is valid, clear out the input after a successful registration.
+    setErrorMessage('');
     setFormState({ name: '', email: '', message: '' })
     console.log('message submitted!');
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (e.target.name === 'email') {
+    if (name === 'email') {
       const isValid = validateEmail(value);
       if (!isValid) {
         setErrorMessage('Your email is invalid.')
@@ -38,38 +39,40 @@ function ContactForm() {
   }
 
   return (
-    <div>
-      <h1>Contact Page</h1>
-      <div>
-        <form className='form'>
-          <input
-            defaultValue={name}
-            name='name'
-            type='text'
-            placeholder='name'
-            onBlur={handleChange}
-          />
-          <input
-            defaultValue={email}
-            name='email'
-            type='email'
-            placeholder='email'
-            onBlur={handleChange}
-          />
-          <input
-            defaultValue={message}
-            name='message'
-            type='text'
-            placeholder='message'
-            onBlur={handleChange}
-          />
-          <button type='submit' onClick={handleSubmit}>Submit</button>
-        </form>
-        {errorMessage && (
-          <div>
-            <p className='error-text'>{errorMessage}</p>
-          </div>
-        )}
+    <div className='container'>
+      <div className='page-container'>
+        <h1 className='page-title'>Contact Page</h1>
+        <div>
+          <form className='form'>
+            <input
+              defaultValue={name}
+              name='name'
+              type='text'
+              placeholder='name'
+              onBlur={handleChange}
+            />
+            <input
+              defaultValue={email}
+              name='email'
+              type='email'
+              placeholder='email'
+              onBlur={handleChange}
+            />
+            <input
+              defaultValue={message}
+              name='message'
+              type='text'
+              placeholder='message'
+              onBlur={handleChange}
+            />
+            <button type='submit' onClick={handleSubmit}>Submit</button>
+          </form>
+          {errorMessage && (
+            <div>
+              <p className='error-text'>{errorMessage}</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
