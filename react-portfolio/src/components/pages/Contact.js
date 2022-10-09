@@ -44,6 +44,7 @@ function ContactForm() {
         <h1 className='page-title'>Contact Page</h1>
         <div>
           <form className='form'>
+            <h2>Name:</h2>
             <input
               defaultValue={name}
               name='name'
@@ -51,6 +52,7 @@ function ContactForm() {
               placeholder='name'
               onBlur={handleChange}
             />
+            <h2>Email:</h2>
             <input
               defaultValue={email}
               name='email'
@@ -58,20 +60,23 @@ function ContactForm() {
               placeholder='email'
               onBlur={handleChange}
             />
-            <input
+            <h2>Message:</h2>
+            <textarea
+              className='message-input'
               defaultValue={message}
               name='message'
               type='text'
               placeholder='message'
               onBlur={handleChange}
             />
-            <button type='submit' onClick={handleSubmit}>Submit</button>
+            {errorMessage && (
+              <div>
+                <p className='error-text'>{errorMessage}</p>
+              </div>
+            )}
+            <button className='submit-btn' type='submit' onClick={handleSubmit}>Submit</button>
           </form>
-          {errorMessage && (
-            <div>
-              <p className='error-text'>{errorMessage}</p>
-            </div>
-          )}
+
         </div>
       </div>
     </div>
