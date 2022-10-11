@@ -1,8 +1,9 @@
 :root {
-    --primary-color: rgb(22, 22, 22);
+    --primary-color: rgb(20, 20, 20);
     --secondary-color: white;
     --primary-text: white;
     --secondary-text: rgb(134, 134, 134);
+    --primary-transition: ease all 0.35s;
 }
 
 /* css style resets */
@@ -108,7 +109,75 @@ main {
     color: var(--secondary-text);
     font-size: 70px;
     max-width: 700px;
-    transition: ease all .4s;
+    transition: var(--primary-transition);
+}
+/* portfolio page styling */
+.project-list {
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    transition: ease all 0.4s;
+}
+
+.project-item {
+    width: 48%;
+    display: flex;
+    margin-bottom: 5%;
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.project-details {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.project-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 45px;
+    font-weight: 500;
+    color: var(--primary-text);
+    margin-right: 1rem;
+}
+
+.project-item img {
+    height: 100%;
+    width: 100%;
+}
+
+.deploy-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary-color);
+    opacity: 0.9;
+    transition: var(--primary-transition);
+}
+
+.deploy-link:hover, .deploy-link:active {
+    opacity: 0;
+}
+
+.project-details a, .project-details:visited {
+    color: var(--secondary-text);
+}
+
+.project-details a:hover {
+    color: white;
 }
 
 /* resume page */
@@ -117,7 +186,7 @@ main {
     flex-direction: column;
     align-items: start;
     padding-left: 3rem;
-    transition: all ease 0.4s;
+    transition: var(--primary-transition);
 }
 
 .resume-item {
@@ -128,14 +197,14 @@ main {
 .resume-item ul {
     padding: 1rem;
     font-size: 25px;
-    transition: all ease 0.4s;
+    transition: var(--primary-transition);
 }
 
 
 .resume-item h2 {
     font-size: 35px;
     font-weight: 400;
-    transition: all ease 0.4s;
+    transition: var(--primary-transition);
 }
 
 .resume-btn {
@@ -144,19 +213,23 @@ main {
     background-color: none;
     color: var(--primary-text);
     font-family: 'Roboto', sans-serif;
-    font-size: 25px;
+    font-size: 30px;
     text-decoration: none;
     border: 1px solid white;
     border-radius: 2rem;
-    padding: .75rem 4rem;
+    padding: .75rem 3rem;
     margin-top: 2rem;
-    transition: all ease 0.4s;
+    transition: var(--primary-transition);
 }
 
 .resume-btn:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    font-weight: 500;
+}
+
+.resume-btn:active {
+    background-color: var(--secondary-text);
+    border-color: var(--secondary-text);
 }
 
 /* contact page styling */
@@ -165,15 +238,16 @@ form {
     flex-direction: column;
     align-items: start;
     width: 550px;
-    transition: ease all .4s;
+    transition: var(--primary-transition);
 }
 form h2 {
     color: var(--secondary-text);
     font-family: 'Roboto', sans-serif;
+    font-weight: 400;
     font-size: 30px;
     margin-left: 1rem;
     margin-bottom: 1rem;
-    transition: ease all .4s;
+    transition: var(--primary-transition);
 }
 
 input, textarea {
@@ -184,12 +258,12 @@ input, textarea {
     padding: 0.25rem;
     border-radius: 5px;
     border: none;
-    transition: ease all .4s;
+    transition: var(--primary-transition);
 }
 
 .message-input {
     height: 275px;
-    transition: ease all .4s;
+    transition: var(--primary-transition);
 }
 
 .submit-btn {
@@ -197,12 +271,13 @@ input, textarea {
     color: var(--primary-text);
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
-    padding: .25rem 3rem;
+    padding: .25rem 3.5rem;
     border: 1px solid var(--primary-text);
     border-radius: 2rem;
     margin-top: 2rem;
     margin-left: 1rem;
-    transition: all ease 0.4s;
+    transition: var(--primary-transition);
+    text-transform: uppercase;
 }
 
 .submit-btn:hover {
@@ -232,16 +307,16 @@ input, textarea {
     flex-direction: column;
     padding-top: 11rem;
     padding-left: 17%;
-    transition: ease all .4s;
+    transition: var(--primary-transition);
 }
 
 .page-title {
     color: var(--primary-text);
     font-family: 'Playfair Display', serif, 'Times New Roman';
     font-weight: 500;
-    font-size: 75px;
+    font-size: 90px;
     padding-bottom: 1rem;
-    transition: ease all .4s;
+    transition: var(--primary-transition);
 }
 
 /* footer styling */
@@ -288,6 +363,14 @@ footer {
 
     .resume-item h2 {
         font-size: 30px;
+    }
+
+    .project-list {
+        width: 80vw;
+    }
+
+    .project-title {
+        font-size: 35px;
     }
 }
 
@@ -369,6 +452,19 @@ footer {
 
     input, textarea {
         font-size: 16px;
+    }
+
+    .project-list {
+        flex-direction: column;
+    }
+
+    .project-item {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .project-title {
+        font-size: 30px;
     }
 }
 
