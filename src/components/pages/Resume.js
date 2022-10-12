@@ -35,7 +35,7 @@ export default function Resume() {
             </ul>
           </div>
         </div>
-        <a href="assets/resume/resume.pdf" download="ning_zhaw_resume" className='resume-btn'>download resume</a>
+        <a href="public/assets/resume/resume.pdf" download="ning_zhaw_resume" className='resume-btn'>download resume</a>
       </div>
     </div>
   );
