@@ -1,9 +1,9 @@
 # React-Portfolio
 ## Description
-A text editor that runs in the browser for users to create notes or code snippets with or without an internet connection so that they can reliably retrieve them for later use. This application meets the PWA critera, featuring a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser.<br />
+Portfolio created using React, including an about me, contact, portfolio, and resume page. Application takes advantage of React Components and Props to display multiple projects on portfolio page, as well as other concepts used to develop this single-page application<br />
 
-GitHub repository: https://github.com/ning1604/Text-Editor <br />
-Deployed application: https://secret-anchorage-31431.herokuapp.com/<br />
+GitHub repository: https://github.com/ning1604/React-Portfolio <br />
+Deployed application: https://ning1604.github.io/React-Portfolio/<br />
 
 ## Table of Contents
 - [Installation](#installation)
@@ -24,11 +24,11 @@ To start the application run the following command:
 npm run start
 ```
 ## Screenshots
-The following image shows the appearance of the application:<br />
+The following images show the appearance of the application:<br />
 
-![image of text editor application](https://user-images.githubusercontent.com/100749559/193394858-894d89fe-76b4-4df3-bc44-3197d48318d1.png)
+![image of about me page](https://user-images.githubusercontent.com/100749559/195247458-219effda-060e-4464-a5c8-91cb60f167d0.png)
 
-![some example code written in text editor](https://user-images.githubusercontent.com/100749559/193394862-e4784c6a-0721-46d3-a79b-3def054ae308.png)
+![image of portfolio page displaying multiple projects](https://user-images.githubusercontent.com/100749559/195247440-dff6f511-c717-42d0-a2f6-e621283f1bcd.png)
 
 
 ## License
