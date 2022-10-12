@@ -28,7 +28,7 @@ function Header() {
     const [hiddenMenu, setHiddenMenu] = useState(true);
 
     return (
-        <div>
+        <div className='header'>
             <nav className='navbar'>
                 <div className='title'>Ning.</div>
                 <a href='#' className='toggle-btn' onClick={() => setHiddenMenu(!hiddenMenu)}>
